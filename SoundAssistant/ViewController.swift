@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    deinit {
+        print("quit")
+    }
     
     @IBAction func clickEndButton(_ sender: Any) {
         voiceDataManager.end()

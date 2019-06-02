@@ -27,6 +27,7 @@
 		0DD8B84E22A285CA00FCDE86 /* VoiceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B84022A285CA00FCDE86 /* VoiceDataManager.swift */; };
 		0DD8B84F22A285CA00FCDE86 /* VoiceSampleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B84222A285CA00FCDE86 /* VoiceSampleUnit.swift */; };
 		0DD8B85122A2860400FCDE86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8B85022A2860400FCDE86 /* Main.storyboard */; };
+		E3206474EDD582A2ED85E372 /* Pods_SoundAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFB81C20A05C1E0F94EA559 /* Pods_SoundAssistant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,9 @@
 		0DD8B84222A285CA00FCDE86 /* VoiceSampleUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceSampleUnit.swift; sourceTree = "<group>"; };
 		0DD8B85022A2860400FCDE86 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0DD8B85222A2862800FCDE86 /* Assistant-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Assistant-Bridge.h"; sourceTree = "<group>"; };
+		2DFB81C20A05C1E0F94EA559 /* Pods_SoundAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883AE9F786CEBEC88DDCC508 /* Pods-SoundAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundAssistant.debug.xcconfig"; path = "Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		9CD9EA98C3A08D189A347105 /* Pods-SoundAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundAssistant.release.xcconfig"; path = "Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3206474EDD582A2ED85E372 /* Pods_SoundAssistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +121,8 @@
 				0DD8B80C22A2858300FCDE86 /* SoundAssistantTests */,
 				0DD8B81722A2858300FCDE86 /* SoundAssistantUITests */,
 				0DD8B7F622A2858100FCDE86 /* Products */,
+				7CDF655861326FE1FA1C9221 /* Pods */,
+				4A2595E36A4DC41F1544A4FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,6 +253,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4A2595E36A4DC41F1544A4FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DFB81C20A05C1E0F94EA559 /* Pods_SoundAssistant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CDF655861326FE1FA1C9221 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				883AE9F786CEBEC88DDCC508 /* Pods-SoundAssistant.debug.xcconfig */,
+				9CD9EA98C3A08D189A347105 /* Pods-SoundAssistant.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DD8B81D22A2858300FCDE86 /* Build configuration list for PBXNativeTarget "SoundAssistant" */;
 			buildPhases = (
+				ABBA1C229F3047F8F5E10E48 /* [CP] Check Pods Manifest.lock */,
 				0DD8B7F122A2858100FCDE86 /* Sources */,
 				0DD8B7F222A2858100FCDE86 /* Frameworks */,
 				0DD8B7F322A2858100FCDE86 /* Resources */,
+				547473EEE7102457724A5AF4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,6 +401,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		547473EEE7102457724A5AF4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
+				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABBA1C229F3047F8F5E10E48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundAssistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0DD8B7F122A2858100FCDE86 /* Sources */ = {
@@ -556,6 +632,7 @@
 		};
 		0DD8B81E22A2858300FCDE86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 883AE9F786CEBEC88DDCC508 /* Pods-SoundAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -575,6 +652,7 @@
 		};
 		0DD8B81F22A2858300FCDE86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD9EA98C3A08D189A347105 /* Pods-SoundAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
