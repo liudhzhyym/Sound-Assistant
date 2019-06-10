@@ -7,78 +7,76 @@
 //
 
 import UIKit
+import AudioIndicatorBars
+import SVProgressHUD
 
-private let reuseIdentifier = "cell_id"
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var timerDisplayButton: UIButton!
-    @IBOutlet weak var endButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var frequencyLabel: UILabel!
+    @IBOutlet weak var indicatorBars: AudioIndicatorBarsView!
+    @IBOutlet weak var circleIndicatorView: CircleIndicatorView!
     private lazy var voiceDataManager = VoiceDataManager.shared
     private lazy var audioHelper = AudioHelper()
-    private var dataList: [VoiceSampleUnit]?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         voiceDataManager.delegate = self
-        print(NSString.getDocumentDirectory())
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupCircleIndicatorView()
     }
     deinit {
+        endListening()
         print("quit")
     }
     
-    @IBAction func clickEndButton(_ sender: Any) {
-        voiceDataManager.end()
-        startButton.isEnabled = true
-    }
-    @IBAction func clickStartButton(_ sender: Any) {
-        voiceDataManager.start()
-        tableView.isHidden = true
-        startButton.isEnabled = false
-    }
     @IBAction func clickPlayButton(_ sender: Any) {
         let path = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString).appendingPathComponent("VoiceTempFile.mp4")
         audioHelper.playMusic(filePath: path)
     }
-    
-    @IBAction func clickTimerDisplayButton(_ sender: UIButton) {
-        sender.setTitle("0", for: [])
-        dataList = nil
-        tableView.reloadData()
-    }
-    
-    @IBAction func clickDisplayButton(_ sender: Any) {
-        tableView.reloadData()
-        tableView.isHidden = false
-    }
-    
-    
 }
 extension ViewController: VoiceDataManagerDelegate{
-    func getTimerCount(manager: VoiceDataManager?, count: Float) {
-        timerDisplayButton.setTitle(String.init(format: "%.1lf", count), for: [])
-        
-    }
-    
-    func getDataList(manager: VoiceDataManager, list: [VoiceSampleUnit]) {
-        dataList = list
+    func getData(manager: VoiceDataManager?, decibel: Int, frequency: Int) {
+        circleIndicatorView.centerValue = decibel
+        circleIndicatorView.indicatorValue = UInt(circleIndicatorView.centerValue)
+        frequencyLabel.text = "\(frequency) Hz"
     }
 }
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList?.count ?? 0
+
+private extension ViewController{
+    func setupCircleIndicatorView(){
+        circleIndicatorView.minValue = 0
+        circleIndicatorView.maxValue = 120
+        circleIndicatorView.innerAnnulusValueToShowArray = [0, 20, 40, 60, 80, 100, 120]
+        circleIndicatorView.indicatorValue = 0
+        circleIndicatorView.addBlock = { [weak self]()->() in
+            self?.endListening()
+        }
+        circleIndicatorView.minusBlock = { [weak self]()->() in
+            AVAudioSession.sharedInstance().requestRecordPermission { (isGranted) in
+                if isGranted{
+                    DispatchQueue.main.async(execute: {
+                        self?.startListening()
+                    })
+                }else{
+                    SVProgressHUD.showInfo(withStatus: "Please allow this app to access your microphone.\n\nYou can update permission status in Settings.")
+                }
+            }
+        }
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        let voiceUnit = dataList?[indexPath.row]
-        
-        cell.textLabel?.text = "No." + String.init(format: "%.1lf", voiceUnit?.index ?? 0) + "------ \(voiceUnit?.db  ?? "") DB ----- \(voiceUnit?.frequency ?? "") HZ"
-        return cell
+    func endListening(){
+        voiceDataManager.end()
+        circleIndicatorView.enableMinusButton()
+        circleIndicatorView.shine(withTimeInterval: 0.01, pauseDuration: 0, finalValue: 0, finish: {
+            
+        })
+        circleIndicatorView.centerValue = 0
+        frequencyLabel.text = "0 Hz"
+        indicatorBars.stop()
+    }
+    func startListening(){
+        self.voiceDataManager.start()
+        self.circleIndicatorView.disableMinusButton()
+        self.indicatorBars.start()
     }
 }
+
 

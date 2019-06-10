@@ -9,8 +9,7 @@
 import Foundation
 
 protocol VoiceDataManagerDelegate: NSObjectProtocol{
-    func getDataList(manager: VoiceDataManager, list: [VoiceSampleUnit])
-    func getTimerCount(manager: VoiceDataManager?, count: Float)
+    func getData(manager: VoiceDataManager?, decibel: Int, frequency: Int)
 }
 
 class VoiceDataManager{
@@ -20,30 +19,26 @@ class VoiceDataManager{
     private lazy var listener = SCListener.shared()
     
     weak var delegate: VoiceDataManagerDelegate?
-    var voiceData = [VoiceSampleUnit]()
+   
     var counter: Float = 0
     
     private init(){
         dbHelper.decibelMeterBlock = {[weak self](dbSPL)->() in
-            let db = String.init(format: "%.2lf", dbSPL)
-            let frequency = String.init(format: "%.2lf", self?.listener?.frequency() ?? 0)
-            let unit = VoiceSampleUnit(index: self?.counter ?? 0, db: db, frequency: frequency)
-            self?.voiceData.append(unit)
-            self?.delegate?.getTimerCount(manager: self, count: self?.counter ?? 0)
+//            let db = String.init(format: "%.2lf", dbSPL)
+//            let frequency = String.init(format: "%.2lf",  ?? 0)
+            self?.delegate?.getData(manager: self, decibel: Int(dbSPL), frequency: Int(self?.listener?.frequency() ?? 0))
             self?.counter += 0.1
         }
     }
     
     func start(){
         counter = 0
-        voiceData.removeAll()
         dbHelper.startMeasuring(withIsSaveVoice: true)
         listener?.listen()
     }
     func end(){
         dbHelper.stopMeasuring()
         listener?.stop()
-        delegate?.getDataList(manager: self, list: voiceData)
     }
     
 }

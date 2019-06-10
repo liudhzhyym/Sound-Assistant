@@ -27,6 +27,8 @@
 		0DD8B84E22A285CA00FCDE86 /* VoiceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B84022A285CA00FCDE86 /* VoiceDataManager.swift */; };
 		0DD8B84F22A285CA00FCDE86 /* VoiceSampleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B84222A285CA00FCDE86 /* VoiceSampleUnit.swift */; };
 		0DD8B85122A2860400FCDE86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8B85022A2860400FCDE86 /* Main.storyboard */; };
+		0DF81DE322ADDAF700269ADC /* RectangleIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF81DE122ADDAF700269ADC /* RectangleIndicatorView.m */; };
+		0DF81DE422ADDAF700269ADC /* CircleIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF81DE222ADDAF700269ADC /* CircleIndicatorView.m */; };
 		E3206474EDD582A2ED85E372 /* Pods_SoundAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFB81C20A05C1E0F94EA559 /* Pods_SoundAssistant.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,10 @@
 		0DD8B84222A285CA00FCDE86 /* VoiceSampleUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceSampleUnit.swift; sourceTree = "<group>"; };
 		0DD8B85022A2860400FCDE86 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0DD8B85222A2862800FCDE86 /* Assistant-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Assistant-Bridge.h"; sourceTree = "<group>"; };
+		0DF81DDF22ADDAF700269ADC /* RectangleIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleIndicatorView.h; sourceTree = "<group>"; };
+		0DF81DE022ADDAF700269ADC /* CircleIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicatorView.h; sourceTree = "<group>"; };
+		0DF81DE122ADDAF700269ADC /* RectangleIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleIndicatorView.m; sourceTree = "<group>"; };
+		0DF81DE222ADDAF700269ADC /* CircleIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicatorView.m; sourceTree = "<group>"; };
 		2DFB81C20A05C1E0F94EA559 /* Pods_SoundAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		883AE9F786CEBEC88DDCC508 /* Pods-SoundAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundAssistant.debug.xcconfig"; path = "Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		9CD9EA98C3A08D189A347105 /* Pods-SoundAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundAssistant.release.xcconfig"; path = "Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		0DD8B7F722A2858100FCDE86 /* SoundAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				0DF81DDE22ADDAF700269ADC /* IndicatorView */,
 				0DD8B82622A285CA00FCDE86 /* DecibelMeter */,
 				0DD8B83322A285CA00FCDE86 /* RecordAndPlayVoice */,
 				0DD8B82922A285CA00FCDE86 /* SCListener */,
@@ -253,6 +260,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0DF81DDE22ADDAF700269ADC /* IndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				0DF81DDF22ADDAF700269ADC /* RectangleIndicatorView.h */,
+				0DF81DE022ADDAF700269ADC /* CircleIndicatorView.h */,
+				0DF81DE122ADDAF700269ADC /* RectangleIndicatorView.m */,
+				0DF81DE222ADDAF700269ADC /* CircleIndicatorView.m */,
+			);
+			path = IndicatorView;
+			sourceTree = "<group>";
+		};
 		4A2595E36A4DC41F1544A4FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +285,6 @@
 				883AE9F786CEBEC88DDCC508 /* Pods-SoundAssistant.debug.xcconfig */,
 				9CD9EA98C3A08D189A347105 /* Pods-SoundAssistant.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -412,15 +429,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SoundAssistant/Pods-SoundAssistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AudioIndicatorBars/AudioIndicatorBars.framework",
 				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioIndicatorBars.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -456,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF81DE322ADDAF700269ADC /* RectangleIndicatorView.m in Sources */,
 				0DD8B84922A285CA00FCDE86 /* LVRecordTool.m in Sources */,
 				0DD8B84422A285CA00FCDE86 /* kiss_fft.c in Sources */,
 				0DD8B84322A285CA00FCDE86 /* DecibelMeterHelper.m in Sources */,
@@ -465,6 +487,7 @@
 				0DD8B84A22A285CA00FCDE86 /* LVRecordView.m in Sources */,
 				0DD8B84E22A285CA00FCDE86 /* VoiceDataManager.swift in Sources */,
 				0DD8B84F22A285CA00FCDE86 /* VoiceSampleUnit.swift in Sources */,
+				0DF81DE422ADDAF700269ADC /* CircleIndicatorView.m in Sources */,
 				0DD8B7F922A2858100FCDE86 /* AppDelegate.swift in Sources */,
 				0DD8B84622A285CA00FCDE86 /* kiss_fftr.c in Sources */,
 				0DD8B84D22A285CA00FCDE86 /* NSString+SCAddition.m in Sources */,

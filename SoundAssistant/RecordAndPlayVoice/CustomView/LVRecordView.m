@@ -106,8 +106,9 @@
 
 #pragma mark - 弹窗提示
 - (void)alertWithMessage:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:message delegate:self cancelButtonTitle:@"Confirm" otherButtonTitles: nil];
-    [alert show];
+    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tips" message:message delegate:self cancelButtonTitle:@"Confirm" otherButtonTitles: nil];
+//    [alert show];
 }
 
 #pragma mark - 播放录音
