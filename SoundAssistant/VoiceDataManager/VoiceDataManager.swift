@@ -24,8 +24,6 @@ class VoiceDataManager{
     
     private init(){
         dbHelper.decibelMeterBlock = {[weak self](dbSPL)->() in
-//            let db = String.init(format: "%.2lf", dbSPL)
-//            let frequency = String.init(format: "%.2lf",  ?? 0)
             self?.delegate?.getData(manager: self, decibel: Int(dbSPL), frequency: Int(self?.listener?.frequency() ?? 0))
             self?.counter += 0.1
         }

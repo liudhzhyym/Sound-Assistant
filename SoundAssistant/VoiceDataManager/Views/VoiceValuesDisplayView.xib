@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="A1Z-G4-1IQ" customClass="VoiceValuesDisplayView" customModule="SoundAssistant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_2" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-DY-Ogp">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PI-IH-NyG" customClass="CircleIndicatorView">
+                    <rect key="frame" x="10" y="54" width="394" height="309"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZW1-57-nwR">
+                            <rect key="frame" x="357" y="5" width="32" height="32"/>
+                            <state key="normal" backgroundImage="btn_play"/>
+                            <connections>
+                                <action selector="clickPlayButton:" destination="A1Z-G4-1IQ" eventType="touchUpInside" id="WbE-s7-phN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWw-uy-W5r">
+                            <rect key="frame" x="5" y="5" width="32" height="32"/>
+                            <state key="normal" backgroundImage="btn_gear"/>
+                            <connections>
+                                <action selector="clickSettingsButton:" destination="A1Z-G4-1IQ" eventType="touchUpInside" id="Eqb-cR-QLB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="DWw-uy-W5r" firstAttribute="leading" secondItem="9PI-IH-NyG" secondAttribute="leading" constant="5" id="XzE-cQ-mJS"/>
+                        <constraint firstItem="DWw-uy-W5r" firstAttribute="top" secondItem="9PI-IH-NyG" secondAttribute="top" constant="5" id="dAi-lb-r0d"/>
+                        <constraint firstItem="ZW1-57-nwR" firstAttribute="top" secondItem="9PI-IH-NyG" secondAttribute="top" constant="5" id="j0U-9F-cdN"/>
+                        <constraint firstItem="ZW1-57-nwR" firstAttribute="centerY" secondItem="DWw-uy-W5r" secondAttribute="centerY" id="qbP-6c-Klx"/>
+                        <constraint firstAttribute="trailing" secondItem="ZW1-57-nwR" secondAttribute="trailing" constant="5" id="szZ-Ht-AMW"/>
+                        <constraint firstAttribute="width" secondItem="9PI-IH-NyG" secondAttribute="height" multiplier="375:294" id="v33-G0-iZL"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Suq-vK-MJi" customClass="AudioIndicatorBarsView" customModule="AudioIndicatorBars">
+                    <rect key="frame" x="10" y="373" width="394" height="339"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="bars">
+                            <integer key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="0.65587115289999998" green="0.6258563399" blue="0.97261005639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNV-Nt-WGR">
+                    <rect key="frame" x="104" y="732" width="100" height="23.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Hz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q97-fb-TxZ">
+                    <rect key="frame" x="212" y="726" width="64.5" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9PI-IH-NyG" firstAttribute="leading" secondItem="nVj-Ks-DEM" secondAttribute="leading" constant="10" id="25N-2V-eDu"/>
+                <constraint firstItem="Suq-vK-MJi" firstAttribute="width" secondItem="9PI-IH-NyG" secondAttribute="width" id="4PS-tF-GhI"/>
+                <constraint firstItem="RNV-Nt-WGR" firstAttribute="top" secondItem="Suq-vK-MJi" secondAttribute="bottom" constant="20" id="9A1-4i-6Fe"/>
+                <constraint firstItem="P8b-DY-Ogp" firstAttribute="leading" secondItem="nVj-Ks-DEM" secondAttribute="leading" id="Kmq-qt-Bjj"/>
+                <constraint firstItem="nVj-Ks-DEM" firstAttribute="trailing" secondItem="9PI-IH-NyG" secondAttribute="trailing" constant="10" id="Mx0-Op-a4g"/>
+                <constraint firstItem="nVj-Ks-DEM" firstAttribute="bottom" secondItem="Suq-vK-MJi" secondAttribute="bottom" constant="150" id="R4C-cr-qlv"/>
+                <constraint firstItem="Suq-vK-MJi" firstAttribute="top" secondItem="9PI-IH-NyG" secondAttribute="bottom" constant="10" id="cbF-u2-p3r"/>
+                <constraint firstItem="9PI-IH-NyG" firstAttribute="centerX" secondItem="A1Z-G4-1IQ" secondAttribute="centerX" id="eB3-nE-t9n"/>
+                <constraint firstItem="9PI-IH-NyG" firstAttribute="top" secondItem="nVj-Ks-DEM" secondAttribute="top" constant="10" id="eIW-bT-xkc"/>
+                <constraint firstItem="nVj-Ks-DEM" firstAttribute="trailing" secondItem="P8b-DY-Ogp" secondAttribute="trailing" id="foq-Fm-IFI"/>
+                <constraint firstItem="P8b-DY-Ogp" firstAttribute="top" secondItem="A1Z-G4-1IQ" secondAttribute="top" id="hBF-4F-Xx8"/>
+                <constraint firstItem="Q97-fb-TxZ" firstAttribute="centerY" secondItem="RNV-Nt-WGR" secondAttribute="centerY" id="hPs-ls-Ajf"/>
+                <constraint firstItem="RNV-Nt-WGR" firstAttribute="trailing" secondItem="A1Z-G4-1IQ" secondAttribute="centerX" constant="-3" id="nY9-pJ-0hi"/>
+                <constraint firstItem="Suq-vK-MJi" firstAttribute="centerX" secondItem="A1Z-G4-1IQ" secondAttribute="centerX" id="oIt-Vi-hN6"/>
+                <constraint firstItem="Q97-fb-TxZ" firstAttribute="leading" secondItem="A1Z-G4-1IQ" secondAttribute="centerX" constant="5" id="pxj-Jp-HSo"/>
+                <constraint firstAttribute="bottom" secondItem="P8b-DY-Ogp" secondAttribute="bottom" id="y2R-kC-jfL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="nVj-Ks-DEM"/>
+            <connections>
+                <outlet property="circleIndicatorView" destination="9PI-IH-NyG" id="DQP-xg-aQN"/>
+                <outlet property="frequencyLabel" destination="Q97-fb-TxZ" id="win-iY-iq7"/>
+                <outlet property="indicatorBars" destination="Suq-vK-MJi" id="blL-VS-icH"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="background_2" width="1000" height="1000"/>
+        <image name="btn_gear" width="32" height="32"/>
+        <image name="btn_play" width="32" height="32"/>
+    </resources>
+</document>

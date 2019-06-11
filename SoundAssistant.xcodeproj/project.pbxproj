@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4AA29622AF2453009D050C /* VoiceValuesDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AA29522AF2453009D050C /* VoiceValuesDisplayView.swift */; };
+		0D4AA29822AF2466009D050C /* VoiceValuesDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4AA29722AF2466009D050C /* VoiceValuesDisplayView.xib */; };
+		0D4AA29A22AF2965009D050C /* VoiceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AA29922AF2965009D050C /* VoiceSettingsView.swift */; };
+		0D4AA29C22AF297C009D050C /* VoiceSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4AA29B22AF297C009D050C /* VoiceSettingsView.xib */; };
+		0D4AA29E22AF3B5D009D050C /* SoundAssistantCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4AA29D22AF3B5D009D050C /* SoundAssistantCommon.swift */; };
 		0DD8B7F922A2858100FCDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B7F822A2858100FCDE86 /* AppDelegate.swift */; };
 		0DD8B7FB22A2858100FCDE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD8B7FA22A2858100FCDE86 /* ViewController.swift */; };
 		0DD8B80022A2858300FCDE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD8B7FF22A2858300FCDE86 /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D4AA29522AF2453009D050C /* VoiceValuesDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceValuesDisplayView.swift; sourceTree = "<group>"; };
+		0D4AA29722AF2466009D050C /* VoiceValuesDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceValuesDisplayView.xib; sourceTree = "<group>"; };
+		0D4AA29922AF2965009D050C /* VoiceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSettingsView.swift; sourceTree = "<group>"; };
+		0D4AA29B22AF297C009D050C /* VoiceSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceSettingsView.xib; sourceTree = "<group>"; };
+		0D4AA29D22AF3B5D009D050C /* SoundAssistantCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAssistantCommon.swift; sourceTree = "<group>"; };
 		0DD8B7F522A2858100FCDE86 /* SoundAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD8B7F822A2858100FCDE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD8B7FA22A2858100FCDE86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +130,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D4AA29422AF23E8009D050C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D4AA29522AF2453009D050C /* VoiceValuesDisplayView.swift */,
+				0D4AA29722AF2466009D050C /* VoiceValuesDisplayView.xib */,
+				0D4AA29922AF2965009D050C /* VoiceSettingsView.swift */,
+				0D4AA29B22AF297C009D050C /* VoiceSettingsView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0DD8B7EC22A2858100FCDE86 = {
 			isa = PBXGroup;
 			children = (
@@ -145,10 +166,6 @@
 		0DD8B7F722A2858100FCDE86 /* SoundAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				0DF81DDE22ADDAF700269ADC /* IndicatorView */,
-				0DD8B82622A285CA00FCDE86 /* DecibelMeter */,
-				0DD8B83322A285CA00FCDE86 /* RecordAndPlayVoice */,
-				0DD8B82922A285CA00FCDE86 /* SCListener */,
 				0DD8B83B22A285CA00FCDE86 /* VoiceDataManager */,
 				0DD8B7F822A2858100FCDE86 /* AppDelegate.swift */,
 				0DD8B7FA22A2858100FCDE86 /* ViewController.swift */,
@@ -235,6 +252,7 @@
 		0DD8B83B22A285CA00FCDE86 /* VoiceDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				0D4AA29422AF23E8009D050C /* Views */,
 				0DD8B83C22A285CA00FCDE86 /* Tools */,
 				0DD8B84022A285CA00FCDE86 /* VoiceDataManager.swift */,
 				0DD8B84122A285CA00FCDE86 /* Model */,
@@ -245,9 +263,14 @@
 		0DD8B83C22A285CA00FCDE86 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0DF81DDE22ADDAF700269ADC /* IndicatorView */,
+				0DD8B82622A285CA00FCDE86 /* DecibelMeter */,
+				0DD8B83322A285CA00FCDE86 /* RecordAndPlayVoice */,
+				0DD8B82922A285CA00FCDE86 /* SCListener */,
 				0DD8B83D22A285CA00FCDE86 /* AudioHelper.swift */,
 				0DD8B83E22A285CA00FCDE86 /* NSString+SCAddition.m */,
 				0DD8B83F22A285CA00FCDE86 /* NSString+SCAddition.h */,
+				0D4AA29D22AF3B5D009D050C /* SoundAssistantCommon.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -394,9 +417,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4AA29C22AF297C009D050C /* VoiceSettingsView.xib in Resources */,
 				0DD8B84822A285CA00FCDE86 /* CHANGELOG.markdown in Resources */,
 				0DD8B80322A2858300FCDE86 /* LaunchScreen.storyboard in Resources */,
 				0DD8B80022A2858300FCDE86 /* Assets.xcassets in Resources */,
+				0D4AA29822AF2466009D050C /* VoiceValuesDisplayView.xib in Resources */,
 				0DD8B85122A2860400FCDE86 /* Main.storyboard in Resources */,
 				0DD8B84B22A285CA00FCDE86 /* LVRecordView.xib in Resources */,
 				0DD8B84722A285CA00FCDE86 /* README.markdown in Resources */,
@@ -481,13 +506,16 @@
 				0DD8B84922A285CA00FCDE86 /* LVRecordTool.m in Sources */,
 				0DD8B84422A285CA00FCDE86 /* kiss_fft.c in Sources */,
 				0DD8B84322A285CA00FCDE86 /* DecibelMeterHelper.m in Sources */,
+				0D4AA29A22AF2965009D050C /* VoiceSettingsView.swift in Sources */,
 				0DD8B84C22A285CA00FCDE86 /* AudioHelper.swift in Sources */,
 				0DD8B7FB22A2858100FCDE86 /* ViewController.swift in Sources */,
 				0DD8B84522A285CA00FCDE86 /* SCListener.m in Sources */,
 				0DD8B84A22A285CA00FCDE86 /* LVRecordView.m in Sources */,
 				0DD8B84E22A285CA00FCDE86 /* VoiceDataManager.swift in Sources */,
 				0DD8B84F22A285CA00FCDE86 /* VoiceSampleUnit.swift in Sources */,
+				0D4AA29E22AF3B5D009D050C /* SoundAssistantCommon.swift in Sources */,
 				0DF81DE422ADDAF700269ADC /* CircleIndicatorView.m in Sources */,
+				0D4AA29622AF2453009D050C /* VoiceValuesDisplayView.swift in Sources */,
 				0DD8B7F922A2858100FCDE86 /* AppDelegate.swift in Sources */,
 				0DD8B84622A285CA00FCDE86 /* kiss_fftr.c in Sources */,
 				0DD8B84D22A285CA00FCDE86 /* NSString+SCAddition.m in Sources */,
