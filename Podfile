@@ -6,6 +6,5 @@ target 'SoundAssistant' do
   use_frameworks!
 inhibit_all_warnings!
 pod 'AudioIndicatorBars', '~> 0.0.2'
-pod 'MLeaksFinder'
 pod "SVProgressHUD"
 end

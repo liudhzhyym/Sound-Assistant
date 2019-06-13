@@ -209,9 +209,12 @@
 }
 -(void)disableMinusButton{
     self.minusButton.userInteractionEnabled = NO;
+    [self.minusButton setImage:[UIImage imageNamed:@"btn_less_disable"] forState:UIControlStateNormal];
 }
 -(void)enableMinusButton{
     self.minusButton.userInteractionEnabled = YES;
+    [self.minusButton setImage:[UIImage imageNamed:@"btn_less"] forState:UIControlStateNormal];
+    
 }
 
 /// 设置那些与尺寸无关的变量的默认值

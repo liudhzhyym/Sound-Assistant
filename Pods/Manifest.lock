@@ -1,28 +1,20 @@
 PODS:
   - AudioIndicatorBars (0.0.2)
-  - FBRetainCycleDetector (0.1.4)
-  - MLeaksFinder (1.0.0):
-    - FBRetainCycleDetector
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AudioIndicatorBars (~> 0.0.2)
-  - MLeaksFinder
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AudioIndicatorBars
-    - FBRetainCycleDetector
-    - MLeaksFinder
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   AudioIndicatorBars: 10bf47c8422578dab5046e795a85a0f9b292d57d
-  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
-  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: d8806aca90ce6b8c0b8e9e199673f2d68cb99716
+PODFILE CHECKSUM: 9d7f4ab1cdc1a70fa9856cb38a7107cc4dcb3f01
 
 COCOAPODS: 1.6.1

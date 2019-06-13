@@ -7,13 +7,14 @@
 //
 
 import UIKit
-private let appId = "702071888"
+private let appId = "1468191026"
 private let emailAddress = "stephen.cao0805@outlook.com"
 protocol VoiceSettingsViewDelegate: NSObjectProtocol {
     func didClickUploadButton(view:VoiceSettingsView, content: String)
 }
 class VoiceSettingsView: UIView {
     weak var delegate: VoiceSettingsViewDelegate?
+    
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var textField: UITextField!
@@ -68,9 +69,11 @@ class VoiceSettingsView: UIView {
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         case 103:
-            aboutUsTextView.text = "Produced by: Rui Cao\n\nVersion: v1.0.0\n\nCopyright © 2019 Stephen Cao. All rights reserved."
+            aboutUsTextView.text = "Produced by: Rui Cao\n\nVersion: v1.0.3\n\nCopyright © 2019 Rui Cao. All rights reserved."
         case 104:
             textField.resignFirstResponder()
+        case 105:
+            aboutUsTextView.text = "Tips: Previous sound record will be covered by the current one. Please send it to your email before starting the next recording."
         default:
             break
         }

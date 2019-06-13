@@ -221,7 +221,7 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KyO-sm-kKD">
-                            <rect key="frame" x="10" y="238" width="374" height="152"/>
+                            <rect key="frame" x="10" y="295" width="374" height="95"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -249,19 +249,36 @@
                                 <color key="titleColor" red="0.65587115289999998" green="0.6258563399" blue="0.97261005639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
                         </button>
+                        <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9F-BZ-f1W">
+                            <rect key="frame" x="10" y="258" width="80" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="d13-ty-0Ng"/>
+                                <constraint firstAttribute="width" constant="80" id="fFF-T2-SLc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Tips" image="btn_tips">
+                                <color key="titleColor" red="0.65587115289999998" green="0.6258563399" blue="0.97261005639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="clickMoreButtons:" destination="vkV-pf-hKG" eventType="touchUpInside" id="NTr-QT-Ych"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="KyO-sm-kKD" firstAttribute="leading" secondItem="XQv-On-Eqc" secondAttribute="leading" id="08h-0q-QBm"/>
+                        <constraint firstItem="KyO-sm-kKD" firstAttribute="top" secondItem="z9F-BZ-f1W" secondAttribute="bottom" constant="5" id="4qf-1r-Aiv"/>
                         <constraint firstItem="bdP-gj-fxz" firstAttribute="leading" secondItem="yJA-cO-A0L" secondAttribute="trailing" constant="5" id="5nQ-X5-fzj"/>
                         <constraint firstItem="XQv-On-Eqc" firstAttribute="leading" secondItem="P1m-xw-MUs" secondAttribute="leading" id="6Yy-8t-1Pl"/>
                         <constraint firstItem="bdP-gj-fxz" firstAttribute="centerY" secondItem="a54-7V-4Fq" secondAttribute="centerY" id="AQb-4x-ECF"/>
                         <constraint firstAttribute="trailing" secondItem="KyO-sm-kKD" secondAttribute="trailing" constant="10" id="Jhh-0M-OOY"/>
+                        <constraint firstItem="z9F-BZ-f1W" firstAttribute="leading" secondItem="XQv-On-Eqc" secondAttribute="leading" id="KoP-AN-xX3"/>
                         <constraint firstItem="a54-7V-4Fq" firstAttribute="top" secondItem="XFI-NW-8vM" secondAttribute="top" constant="10" id="P6w-H0-gw2"/>
                         <constraint firstAttribute="bottom" secondItem="KyO-sm-kKD" secondAttribute="bottom" constant="10" id="Qdz-ln-8LS"/>
                         <constraint firstItem="a54-7V-4Fq" firstAttribute="leading" secondItem="XFI-NW-8vM" secondAttribute="leading" constant="10" id="U6Q-SY-Ppq"/>
+                        <constraint firstItem="z9F-BZ-f1W" firstAttribute="top" secondItem="XQv-On-Eqc" secondAttribute="bottom" constant="30" id="Wwc-1I-AY7"/>
                         <constraint firstItem="yJA-cO-A0L" firstAttribute="centerY" secondItem="a54-7V-4Fq" secondAttribute="centerY" id="Y5b-KA-qsv"/>
                         <constraint firstAttribute="trailing" secondItem="bdP-gj-fxz" secondAttribute="trailing" constant="10" id="i4J-DJ-mS5"/>
-                        <constraint firstItem="KyO-sm-kKD" firstAttribute="top" secondItem="XQv-On-Eqc" secondAttribute="bottom" constant="10" id="kAU-yf-U7Z"/>
                         <constraint firstItem="kda-3w-vAC" firstAttribute="leading" secondItem="a54-7V-4Fq" secondAttribute="leading" id="l2B-Vr-gWE"/>
                         <constraint firstItem="yJA-cO-A0L" firstAttribute="leading" secondItem="a54-7V-4Fq" secondAttribute="trailing" constant="5" id="mHE-hQ-oLW"/>
                         <constraint firstItem="kda-3w-vAC" firstAttribute="top" secondItem="a54-7V-4Fq" secondAttribute="bottom" constant="30" id="mMe-Qr-Qux"/>
@@ -321,6 +338,7 @@
         <image name="btn_edit" width="32" height="32"/>
         <image name="btn_email" width="32" height="32"/>
         <image name="btn_rate" width="32" height="32"/>
+        <image name="btn_tips" width="32" height="32"/>
         <image name="btn_upload" width="32" height="32"/>
     </resources>
 </document>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93C9E63B2409765F58F878427AE23B97"
+               BlueprintIdentifier = "E01F8C6A9326E46498D34CDB117CCD17"
                BuildableName = "Pods_SoundAssistant.framework"
                BlueprintName = "Pods-SoundAssistant"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "93C9E63B2409765F58F878427AE23B97"
+            BlueprintIdentifier = "E01F8C6A9326E46498D34CDB117CCD17"
             BuildableName = "Pods_SoundAssistant.framework"
             BlueprintName = "Pods-SoundAssistant"
             ReferencedContainer = "container:Pods.xcodeproj">
