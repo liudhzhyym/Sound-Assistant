@@ -16,6 +16,7 @@ class VoiceSettingsView: UIView {
     weak var delegate: VoiceSettingsViewDelegate?
     
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var moreOptionsView: UIView!
@@ -42,13 +43,14 @@ class VoiceSettingsView: UIView {
     }
     override func awakeFromNib() {
         textField.text = userDefault.object(forKey: UploadFileEmailAddressDefaultKey) as? String
+        textField.borderStyle = .none
     }
 
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
         moreOptionsView.isHidden = sender.selectedSegmentIndex != 1
         valuesView.isHidden = !moreOptionsView.isHidden
         if moreOptionsView.isHidden{
-            textField.resignFirstResponder()
+            disableTextField()
         }
     }
     
@@ -69,9 +71,13 @@ class VoiceSettingsView: UIView {
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         case 103:
-            aboutUsTextView.text = "Produced by: Rui Cao\n\nVersion: v1.0.3\n\nCopyright © 2019 Rui Cao. All rights reserved."
+            aboutUsTextView.text = "Produced by: Rui Cao\n\nVersion: v1.0.5\n\nCopyright © 2019 Rui Cao. All rights reserved."
         case 104:
-            textField.resignFirstResponder()
+            if !textField.isEnabled{
+                enableTextField()
+            } else{
+                disableTextField()
+            }
         case 105:
             aboutUsTextView.text = "Tips: Previous sound record will be covered by the current one. Please send it to your email before starting the next recording."
         default:
@@ -97,10 +103,26 @@ class VoiceSettingsView: UIView {
         minFqValue = 0
         
         aboutUsTextView.text.removeAll()
-        textField.resignFirstResponder()
         
         segmentControl.selectedSegmentIndex = 0
         segmentControl(segmentControl)
+        
+        disableTextField()
+    }
+    
+    private func enableTextField(){
+        textField.backgroundColor = UIColor.white
+        textField.isEnabled = true
+        textField.becomeFirstResponder()
+        textField.borderStyle = .roundedRect
+        editButton.setBackgroundImage(UIImage(named: "btn_edit_selected"), for: [])
+    }
+    private func disableTextField(){
+        textField.backgroundColor = UIColor.clear
+        textField.borderStyle = .none
+        textField.isEnabled = false
+        textField.resignFirstResponder()
+        editButton.setBackgroundImage(UIImage(named: "btn_edit"), for: [])
     }
 }
 extension VoiceSettingsView{
